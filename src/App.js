@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar1 from './components/Navbar/Navbar';
+import Multistep from './components/MultiStep/index';
+import StepOne from './components/MultiStep/StepOne';
+import StepTwo from './components/MultiStep/StepTwo';
+import StepThree from './components/MultiStep/StepThree';
+import '../src/App.css'
 
 function App() {
+  const steps = [
+    {name: 'StepOne', component: <StepOne/>},
+    {name: 'StepTwo', component: <StepTwo/>},
+    {name: 'StepThree', component: <StepThree/>}
+    // {name: 'StepFour', component: <StepFour/>}
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar1/>
+      
+      <Multistep activeStep={1} showNavigation={true} steps={steps}/>
+    </>
   );
 }
 
